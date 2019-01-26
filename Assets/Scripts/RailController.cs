@@ -2,14 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Should be own gameobject so the Transform is not affected by the offset
 public class RailController : MonoBehaviour
 {
     [SerializeField]
-    private Vector3[] nodes;
+    private RailManager railManager;
 
     [SerializeField]
     private float railSpeed;
 
+    // Camera could just be a child of the RailTransform. Might be simpler
     [SerializeField]
     private Transform cameraTransform;
 
@@ -17,29 +19,28 @@ public class RailController : MonoBehaviour
     private Vector3 cameraOffset;
 
     private int index = 0;
-    private Vector3 currentPosition;
 
     private void Start()
     {
-        currentPosition = transform.position;
+        transform.LookAt(railManager.GetNodes()[0]);
     }
 
-    public Vector3 UpdateRail()
+    public Transform UpdateRail()
     {
-        Vector3 currentNode = nodes[index];
-        currentPosition = Vector3.MoveTowards(currentPosition, currentNode, railSpeed * Time.deltaTime);               
+        Vector3 currentNode = railManager.GetNodes()[index];
+        transform.position = Vector3.MoveTowards(transform.position, currentNode, railSpeed * Time.deltaTime);               
 
-        if ((currentNode - currentPosition).sqrMagnitude < 0.5f)
+        if ((currentNode - transform.position).sqrMagnitude < 0.01f)
         {
             index++;
-            if (index == nodes.Length)
+            if (index == railManager.GetNodes().Length)
             {
                 index = 0;
             }
-            transform.LookAt(nodes[index]);
+            transform.LookAt(railManager.GetNodes()[index]);
         }
-        cameraTransform.position = currentPosition + (transform.rotation * cameraOffset);
+        cameraTransform.position = transform.position + (transform.rotation * cameraOffset);
         cameraTransform.rotation = transform.rotation;
-        return currentPosition;
+        return transform;
     }
 }
