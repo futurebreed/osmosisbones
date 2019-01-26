@@ -7,6 +7,12 @@ public class OsmosisController : MonoBehaviour
     [SerializeField]
     private float sideSpeed;
 
+    [SerializeField]
+    private float speedUp;
+
+    [SerializeField]
+    private float speedUpDuration;
+
     // RailController is attached to an empty object that moves along the rail
     [SerializeField]
     private RailController railController;
@@ -17,16 +23,20 @@ public class OsmosisController : MonoBehaviour
     private Vector2 offset = Vector2.zero;
     private float offsetMax;
 
+    private float timeSinceRedHit;
+
     private void Start()
     {
         offsetMax = railManager.GetOffsetMax();
+        timeSinceRedHit = float.MinValue;
     }
 
     private void Update()
     {
         float horz = Input.GetAxis("Horizontal");
         float vert = Input.GetAxis("Vertical");
-        offset += new Vector2(horz, vert) * Time.deltaTime * sideSpeed;
+        float speed = sideSpeed + (Time.time - timeSinceRedHit > speedUpDuration ? 0 : speedUp); 
+        offset += new Vector2(horz, vert) * Time.deltaTime * speed;
         offset = BoundCircle(offset, offsetMax);
         Transform railTransform = railController.UpdateRail();
         transform.position = railTransform.position + (railTransform.rotation * new Vector3(offset.x, offset.y, 0f));
@@ -54,6 +64,13 @@ public class OsmosisController : MonoBehaviour
         {
             // Reset path
             railController.resetRail();
+            timeSinceRedHit = float.MinValue;
+        }
+        else if (other.CompareTag("RedCell"))
+        {
+            Debug.Log("Hit red cell!");
+            timeSinceRedHit = Time.time;
+            Destroy(other.gameObject);
         }
     }
 }

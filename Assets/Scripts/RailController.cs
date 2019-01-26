@@ -12,6 +12,9 @@ public class RailController : MonoBehaviour
     private float railSpeed;
 
     [SerializeField]
+    private float cinematicSpeed;
+
+    [SerializeField]
     private float turningDistance = 3f;
 
     // Camera could just be a child of the RailTransform. Might be simpler
@@ -35,7 +38,8 @@ public class RailController : MonoBehaviour
     public Transform UpdateRail()
     {
         RailManager.Node currentNode = railManager.GetNodes()[index];
-        transform.position = Vector3.MoveTowards(transform.position, currentNode.position, railSpeed * Time.deltaTime);
+        float speed = currentNode.cinematic ? cinematicSpeed : railSpeed;
+        transform.position = Vector3.MoveTowards(transform.position, currentNode.position, speed * Time.deltaTime);
         Vector3 directionVector = currentNode.position - transform.position;
         if (directionVector.sqrMagnitude == 0f)
         {
@@ -66,7 +70,7 @@ public class RailController : MonoBehaviour
                 float distanceRemaining = directionVector.magnitude; // Need the actual magnitude :(
 
                 // Calculate how much we need to turn each second
-                angleStep = (angleRemaining / distanceRemaining) * railSpeed;
+                angleStep = (angleRemaining / distanceRemaining) * speed;
                 Debug.LogFormat("AngleStep set to {0}", angleStep);                
                 isTurning = true;
             }
