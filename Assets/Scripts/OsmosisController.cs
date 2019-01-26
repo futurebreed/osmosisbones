@@ -20,6 +20,9 @@ public class OsmosisController : MonoBehaviour
     [SerializeField]
     private RailManager railManager;
 
+    [SerializeField]
+    private PromptManager promptManager;
+
     private Vector2 offset = Vector2.zero;
     private float offsetMax;
 
@@ -65,6 +68,7 @@ public class OsmosisController : MonoBehaviour
             // Reset path
             railController.resetRail();
             timeSinceRedHit = float.MinValue;
+            promptManager.ShowRespawnPrompt();
         }
         else if (other.CompareTag("RedCell"))
         {
