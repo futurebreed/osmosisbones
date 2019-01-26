@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
 using UnityEngine;
@@ -11,6 +12,11 @@ public class PromptManager : MonoBehaviour
 
     [SerializeField]
     private TextAsset storyPromptData;
+
+    [SerializeField]
+    private float delayedTextSpeed;
+
+    private Coroutine delayedTextRoutine;
 
     public GameObject promptPanel;
     public Text promptText;
@@ -72,7 +78,7 @@ public class PromptManager : MonoBehaviour
     public void ResetPrompts()
     {
         currentStoryPromptIndex = 0;
-        currentRespawnPromptIndex = Random.Range(0, respawnPrompts.Count - 1);
+        currentRespawnPromptIndex = UnityEngine.Random.Range(0, respawnPrompts.Count - 1);
     }
 
     public string GetNextRespawnPrompt()
@@ -91,23 +97,60 @@ public class PromptManager : MonoBehaviour
         return prompt;
     }
 
+    /// <summary>
+    /// Retrieve the next story prompt and show it on the screen
+    /// </summary>
     public void ShowStoryPrompt()
     {
-        Debug.Log("Show story prompt");
-        promptPanel.SetActive(true);
-        promptText.text = GetNextStoryPrompt();
+        ShowPrompt(GetNextStoryPrompt);
     }
 
+    /// <summary>
+    /// Retrieve a new respawn prompt and show it on the screen
+    /// </summary>
     public void ShowRespawnPrompt()
     {
-        Debug.Log("Show respawn prompt");
-        promptPanel.SetActive(true);
-        promptText.text = GetNextRespawnPrompt();
+        ShowPrompt(GetNextRespawnPrompt);
     }
 
+    private void ShowPrompt(Func<string> getPromptFunction)
+    {
+        // Make sure a previous prompt is already shut down
+        HidePrompt();
+
+        Debug.Log("Show prompt");
+        promptPanel.SetActive(true);
+        delayedTextRoutine = StartCoroutine(WaitAndPrintText(getPromptFunction()));
+    }
+
+    /// <summary>
+    /// Hide the active text prompt
+    /// </summary>
     public void HidePrompt()
     {
         Debug.Log("Hide prompt");
         promptPanel.SetActive(false);
+
+        if (delayedTextRoutine != null)
+        {
+            StopCoroutine(delayedTextRoutine);
+        }
+    }
+
+    /// <summary>
+    /// Does a delayed text write effect
+    /// </summary>
+    private IEnumerator<WaitForSeconds> WaitAndPrintText(string text)
+    {
+        int totalToShow = text.Length;
+        int shownSoFarCount = 0;
+
+        while (totalToShow > shownSoFarCount)
+        {
+            shownSoFarCount++;
+            promptText.text = text.Substring(0, shownSoFarCount);
+
+            yield return new WaitForSeconds(delayedTextSpeed * Time.deltaTime);
+        }
     }
 }

@@ -1042,6 +1042,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   respawnPromptData: {fileID: 4900000, guid: 31af7507838c45c488f3efac442dbd90, type: 3}
   storyPromptData: {fileID: 4900000, guid: 887a1d1e2ac5e454bad9bc7d450f1ed3, type: 3}
+  delayedTextSpeed: 2
   promptPanel: {fileID: 1484443726}
   promptText: {fileID: 1625164476}
 --- !u!1 &1899288968
