@@ -418,6 +418,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railManager: {fileID: 1871042406}
   railSpeed: 10
+  turningDistance: 3
   cameraTransform: {fileID: 534669905}
   cameraOffset: {x: 0, y: 0, z: -10}
 --- !u!4 &1093278085

@@ -26,7 +26,7 @@ public class Spawner : MonoBehaviour
         foreach (Vector3 node in railManager.GetNodes())
         {
             // Loop until we are close enough to move on to the next node
-            while ((node - currentPosition).sqrMagnitude > 0.1f)
+            while ((node - currentPosition).sqrMagnitude != 0f)
             {
                 // Get the direction towards the node before we move towards it
                 Vector3 direction = node - currentPosition;
