@@ -29,14 +29,14 @@ public class RailController : MonoBehaviour
 
     private void Start()
     {
-        transform.LookAt(railManager.GetNodes()[0]);
+        transform.LookAt(railManager.GetNodes()[0].position, railManager.GetNodes()[0].worldUp);
     }
 
     public Transform UpdateRail()
     {
-        Vector3 currentNode = railManager.GetNodes()[index];
-        transform.position = Vector3.MoveTowards(transform.position, currentNode, railSpeed * Time.deltaTime);
-        Vector3 directionVector = currentNode - transform.position;
+        RailManager.Node currentNode = railManager.GetNodes()[index];
+        transform.position = Vector3.MoveTowards(transform.position, currentNode.position, railSpeed * Time.deltaTime);
+        Vector3 directionVector = currentNode.position - transform.position;
         if (directionVector.sqrMagnitude == 0f)
         {
             isTurning = false;
@@ -45,7 +45,7 @@ public class RailController : MonoBehaviour
             {
                 index = 0;
             }
-            transform.LookAt(railManager.GetNodes()[index]);
+            transform.LookAt(railManager.GetNodes()[index].position, railManager.GetNodes()[index].worldUp);
             
         }
         // Try to turn towards the next vector smoothly
@@ -58,7 +58,8 @@ public class RailController : MonoBehaviour
             else
             {
                 // Get the end rotation
-                lookRotation = Quaternion.LookRotation(railManager.GetNodes()[index + 1] - currentNode);
+                RailManager.Node nextNode = railManager.GetNodes()[index + 1];
+                lookRotation = Quaternion.LookRotation(nextNode.position - currentNode.position, nextNode.worldUp);
 
                 // Get the angle we need to turn and the distance we have left
                 float angleRemaining = Quaternion.Angle(transform.rotation, lookRotation);
@@ -80,6 +81,6 @@ public class RailController : MonoBehaviour
     {
         index = 0;
         transform.position = Vector3.zero;
-        transform.LookAt(railManager.GetNodes()[0]);
+        transform.LookAt(railManager.GetNodes()[0].position, railManager.GetNodes()[0].worldUp);
     }
 }

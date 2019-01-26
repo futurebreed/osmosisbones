@@ -20,18 +20,18 @@ public class Spawner : MonoBehaviour
     {
         // Make sure cells don't spawn right next to the start position
         // What determines start position? Currently just using Vector3.zero
-        Vector3 currentPosition = Vector3.MoveTowards(Vector3.zero, railManager.GetNodes()[0], 5f);
+        Vector3 currentPosition = Vector3.MoveTowards(Vector3.zero, railManager.GetNodes()[0].position, 5f);
         float offsetMax = railManager.GetOffsetMax();
         // Traverse through the nodes
-        foreach (Vector3 node in railManager.GetNodes())
+        foreach (RailManager.Node node in railManager.GetNodes())
         {
             // Loop until we are close enough to move on to the next node
-            while ((node - currentPosition).sqrMagnitude != 0f)
+            while ((node.position - currentPosition).sqrMagnitude != 0f)
             {
                 // Get the direction towards the node before we move towards it
-                Vector3 direction = node - currentPosition;
+                Vector3 direction = node.position - currentPosition;
                 // Move towards node at the given "StepDistance"
-                currentPosition = Vector3.MoveTowards(currentPosition, node, stepDistance);
+                currentPosition = Vector3.MoveTowards(currentPosition, node.position, stepDistance);
 
                 // Roll to see if we should spawn a cell
                 if (Random.Range(0, 100) < stepChance)

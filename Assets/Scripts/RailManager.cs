@@ -1,16 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 
 public class RailManager : MonoBehaviour
 {
     [SerializeField]
-    private Vector3[] nodes;
+    private Node[] nodes;
 
     [SerializeField]
     private float offsetRadius;
 
-    public Vector3[] GetNodes()
+    public Node[] GetNodes()
     {
         return nodes;
     }
@@ -18,5 +17,12 @@ public class RailManager : MonoBehaviour
     public float GetOffsetMax()
     {
         return offsetRadius;
+    }
+
+    [Serializable]
+    public struct Node
+    {
+        public Vector3 position;
+        public Vector3 worldUp;
     }
 }
