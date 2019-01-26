@@ -14,7 +14,10 @@ public class PromptManager : MonoBehaviour
     private TextAsset storyPromptData;
 
     [SerializeField]
-    private float delayedTextSpeed;
+    private float showLetterDelay;
+
+    [SerializeField]
+    private float closePromptDelay;
 
     private Coroutine delayedTextRoutine;
 
@@ -150,7 +153,18 @@ public class PromptManager : MonoBehaviour
             shownSoFarCount++;
             promptText.text = text.Substring(0, shownSoFarCount);
 
-            yield return new WaitForSeconds(delayedTextSpeed * Time.deltaTime);
+            // If the text is done rendering, wait for our prompt delay, then hide the prompt
+            if (totalToShow == shownSoFarCount)
+            {
+                yield return new WaitForSeconds(closePromptDelay * Time.deltaTime);
+
+                HidePrompt();
+            }
+            else
+            {
+                // Wait until we should show the next text character
+                yield return new WaitForSeconds(showLetterDelay * Time.deltaTime);
+            }
         }
     }
 }
