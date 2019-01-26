@@ -43,4 +43,11 @@ public class RailController : MonoBehaviour
         cameraTransform.rotation = transform.rotation;
         return transform;
     }
+
+    public void resetRail()
+    {
+        index = 0;
+        transform.position = Vector3.zero;
+        transform.LookAt(railManager.GetNodes()[0]);
+    }
 }

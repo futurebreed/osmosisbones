@@ -47,4 +47,13 @@ public class OsmosisController : MonoBehaviour
         }
         return point;
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Cell"))
+        {
+            // Reset path
+            railController.resetRail();
+        }
+    }
 }

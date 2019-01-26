@@ -468,7 +468,6 @@ MonoBehaviour:
   - {x: 200, y: 0, z: 0}
   - {x: 200, y: 200, z: 0}
   - {x: 0, y: 200, z: 0}
-  - {x: 0, y: 0, z: 0}
   offsetRadius: 10
 --- !u!4 &1871042407
 Transform:

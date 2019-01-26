@@ -18,7 +18,9 @@ public class Spawner : MonoBehaviour
 
     private void Start()
     {
-        Vector3 currentPosition = Vector3.zero; // Get Objects position? Serialize Field? Use First node?
+        // Make sure cells don't spawn right next to the start position
+        // What determines start position? Currently just using Vector3.zero
+        Vector3 currentPosition = Vector3.MoveTowards(Vector3.zero, railManager.GetNodes()[0], 5f);
         float offsetMax = railManager.GetOffsetMax();
         // Traverse through the nodes
         foreach (Vector3 node in railManager.GetNodes())
