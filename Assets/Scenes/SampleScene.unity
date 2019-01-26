@@ -234,6 +234,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sideSpeed: 5
+  speedUp: 5
+  speedUpDuration: 5
   railController: {fileID: 1093278084}
   railManager: {fileID: 1871042406}
 --- !u!1 &170076733
