@@ -42,7 +42,7 @@ public class PromptManager : MonoBehaviour
         // Initialize output
         output = new List<string>();
 
-        string[] rawTextLines = Regex.Split(rawText, "\n|\r|\r\n");
+        string[] rawTextLines = Regex.Split(rawText, "\n|\r\n?");
 
         foreach (string line in rawTextLines)
         {
