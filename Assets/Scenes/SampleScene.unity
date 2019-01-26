@@ -503,7 +503,25 @@ MonoBehaviour:
   cellPrefab: {fileID: 1044586978188749501, guid: f84c6243e3aeda841b5f10714604c6ee,
     type: 3}
   stepDistance: 1
-  stepChance: 25
+  spawnElements:
+  - prefab: {fileID: 1044586978188749501, guid: f84c6243e3aeda841b5f10714604c6ee,
+      type: 3}
+    spawnChance: 15
+    burst: 0
+    burstFactor: 0
+    burstDistance: 0
+  - prefab: {fileID: 5623648300951139582, guid: 1760ef2540209f44eb38b83674381303,
+      type: 3}
+    spawnChance: 10
+    burst: 0
+    burstFactor: 0
+    burstDistance: 0
+  - prefab: {fileID: 1044586978188749501, guid: f84c6243e3aeda841b5f10714604c6ee,
+      type: 3}
+    spawnChance: 3
+    burst: 1
+    burstFactor: 30
+    burstDistance: 5
 --- !u!1001 &2006486099
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -559,9 +577,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 93846426b7383d34996c66863877fed2, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.45
+      objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 93846426b7383d34996c66863877fed2, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93846426b7383d34996c66863877fed2, type: 3}
