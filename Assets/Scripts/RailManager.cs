@@ -24,5 +24,6 @@ public class RailManager : MonoBehaviour
     {
         public Vector3 position;
         public Vector3 worldUp;
+        public bool cinematic;
     }
 }

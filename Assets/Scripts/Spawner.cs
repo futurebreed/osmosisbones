@@ -24,6 +24,11 @@ public class Spawner : MonoBehaviour
         // Traverse through the nodes
         foreach (RailManager.Node node in railManager.GetNodes())
         {
+            if (node.cinematic)
+            {
+                currentPosition = node.position;
+                continue;
+            }
             // Loop until we are close enough to move on to the next node
             while ((node.position - currentPosition).sqrMagnitude != 0f)
             {

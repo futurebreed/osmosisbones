@@ -418,6 +418,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railManager: {fileID: 1871042406}
   railSpeed: 10
+  cinematicSpeed: 5
   turningDistance: 3
   cameraTransform: {fileID: 534669905}
   cameraOffset: {x: 0, y: 0, z: -10}
@@ -468,10 +469,13 @@ MonoBehaviour:
   nodes:
   - position: {x: 100, y: 0, z: 0}
     worldUp: {x: 0, y: 1, z: 0}
+    cinematic: 0
   - position: {x: 100, y: 100, z: 0}
     worldUp: {x: 1, y: 0, z: 0}
+    cinematic: 1
   - position: {x: 0, y: 100, z: 0}
     worldUp: {x: 0, y: 0, z: 1}
+    cinematic: 0
   offsetRadius: 10
 --- !u!4 &1871042407
 Transform:
