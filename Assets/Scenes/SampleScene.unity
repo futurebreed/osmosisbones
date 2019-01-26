@@ -126,6 +126,7 @@ GameObject:
   - component: {fileID: 63800976}
   - component: {fileID: 63800980}
   - component: {fileID: 63800981}
+  - component: {fileID: 63800982}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -233,9 +234,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c60c743aabede1243b907c5b10bfff38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forwardSpeed: 5
   sideSpeed: 5
   offsetMax: {x: 10, y: 10}
+--- !u!114 &63800982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 63800975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04e4800408f0a4a49962112004b66f1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodes:
+  - {x: 0, y: 0, z: 5}
+  - {x: 0, y: 5, z: 5}
+  - {x: 5, y: 5, z: 5}
+  - {x: 0, y: 0, z: 0}
+  railSpeed: 2
+  cameraTransform: {fileID: 534669905}
+  cameraOffset: {x: 0, y: 0, z: -5}
 --- !u!1 &170076733
 GameObject:
   m_ObjectHideFlags: 0
