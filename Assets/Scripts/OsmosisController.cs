@@ -22,6 +22,9 @@ public class OsmosisController : MonoBehaviour
     [SerializeField]
     private PromptManager promptManager;
 
+    [SerializeField]
+    private FMODUnity.StudioEventEmitter soundEmitter;
+
     private Vector2 offset = Vector2.zero;
     private float offsetMax;
 
@@ -31,6 +34,7 @@ public class OsmosisController : MonoBehaviour
     {
         offsetMax = railManager.GetOffsetMax();
         timeSinceRedHit = float.MinValue;
+        soundEmitter.Play();
     }
 
     private void Update()
@@ -48,6 +52,7 @@ public class OsmosisController : MonoBehaviour
         {
             Debug.Log("Go to Menu");
             SceneManager.LoadScene((int)Scenes.MainMenu);
+            soundEmitter.Stop();
         }
     }
 

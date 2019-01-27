@@ -9,12 +9,21 @@ public enum Scenes : int
 
 public class MenuController : MonoBehaviour
 {
+    [SerializeField]
+    FMODUnity.StudioEventEmitter soundEmitter;
+
+    private void Start()
+    {
+        soundEmitter.Play();
+    }
+
     private void Update()
     {
         bool aButtonPressed = Input.GetButtonUp("Fire1");
         if (aButtonPressed)
         {
             SceneManager.LoadScene((int)Scenes.GameScene);
+            soundEmitter.Stop();
         }
 
         bool quitButtonPressed = Input.GetButtonUp("Quit");
