@@ -124,5 +124,11 @@ public class RailController : MonoBehaviour
             transform.position = Vector3.zero;
         }
         transform.LookAt(railManager.GetNodes()[index].position, railManager.GetNodes()[index].worldUp);
+        spawner.RespawnPlaque(index);
+    }
+
+    public float GetRailSpeed()
+    {
+        return railSpeed;
     }
 }

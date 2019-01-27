@@ -79,14 +79,18 @@ public class Spawner : MonoBehaviour
                     Quaternion randomAngle = Quaternion.AngleAxis(UnityEngine.Random.Range(0f, 360f), Vector3.forward);
 
                     // Roll a random radius (distance from the rail)
-                    Vector3 randomRadius = new Vector3(0f, UnityEngine.Random.Range(0f, offsetMax));
+                    Vector3 randomRadius = spawnerElement.isPlaque ? new Vector3(0f, offsetMax) : 
+                        new Vector3(0f, UnityEngine.Random.Range(0f, offsetMax));
 
                     // apply the random angle to the random radius, then apply the forward vector.
                     Vector3 offset = currentPosition + (rotation * (randomAngle * randomRadius));
-                    if (!spawnerElement.burst)
+                    if (spawnerElement.isPlaque)
+                    {
+                        spawnerElement.spawnedObjects[i].Add(spawnerElement.prefabPooler.GetObject(offset, rotation));
+                    }
+                    else if (!spawnerElement.burst)
                     {
                         spawnerElement.spawnedObjects[i].Add(spawnerElement.prefabPooler.GetObject(offset, Quaternion.identity));
-                        //Instantiate(spawnerElement.prefab, offset, Quaternion.identity);
                     }
                     else
                     {
@@ -99,7 +103,6 @@ public class Spawner : MonoBehaviour
 
                             spawnerElement.spawnedObjects[i].Add(
                                 spawnerElement.prefabPooler.GetObject(burstOffset, Quaternion.identity));
-                            //GameObject obj = Instantiate(spawnerElement.prefab, burstOffset, Quaternion.identity);
                         }
                     }
                 }
@@ -122,6 +125,29 @@ public class Spawner : MonoBehaviour
         }
     }
 
+    public void RespawnPlaque(int checkpoint)
+    {
+        foreach (SpawnerElement spawnerElement in spawnElements)
+        {
+            if (!spawnerElement.isPlaque)
+            {
+                continue;
+            }
+            for (int index = checkpoint; index < spawnerElement.spawnedObjects.Count; index++)
+            {
+                foreach (GameObject obj in spawnerElement.spawnedObjects[index])
+                {
+                    if (obj == null)
+                    {
+                        continue;
+                    }
+                    obj.SetActive(true);
+                    obj.GetComponentInChildren<PlaqueController>(true).RestartValues();
+                }
+            }
+        }
+    }
+
     [Serializable]
     private struct SpawnerElement
     {
@@ -133,5 +159,6 @@ public class Spawner : MonoBehaviour
         public bool burst;
         public int burstFactor;
         public float burstDistance;
+        public bool isPlaque;
     }
 }

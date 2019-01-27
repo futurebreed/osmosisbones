@@ -14,6 +14,12 @@ public class OsmosisController : MonoBehaviour
     [SerializeField]
     private float speedUpDuration;
 
+    [SerializeField]
+    private float fireRest = 0.5f;
+
+    [SerializeField]
+    private Vector3 bulletOffset = new Vector3(0f, 0f, 5f);
+
     // RailController is attached to an empty object that moves along the rail
     [SerializeField]
     private RailController railController;
@@ -33,10 +39,13 @@ public class OsmosisController : MonoBehaviour
     [SerializeField]
     private float fadeDelay;
 
+    private ObjectPooler bulletPool;
+
     private Vector2 offset = Vector2.zero;
     private float offsetMax;
 
     private float timeSinceRedHit;
+    private float timeSinceLastFire = float.MinValue;
 
     private Coroutine fadeToCredits;
 
@@ -45,6 +54,7 @@ public class OsmosisController : MonoBehaviour
         offsetMax = railManager.GetOffsetMax();
         timeSinceRedHit = float.MinValue;
         soundEmitter.Play();
+        bulletPool = GetComponent<ObjectPooler>();
     }
 
     private void Update()
@@ -63,6 +73,13 @@ public class OsmosisController : MonoBehaviour
             Debug.Log("Go to Menu");
             SceneManager.LoadScene((int)Scenes.MainMenu);
             soundEmitter.Stop();
+        }
+        if (Input.GetButton("Fire1") && Time.time - timeSinceLastFire > fireRest)
+        {
+            timeSinceLastFire = Time.time;
+            BulletController bullet = bulletPool.GetObject(transform.position + (transform.rotation * bulletOffset), 
+                transform.rotation).GetComponent<BulletController>();
+            bullet.SetInitialValues(railController.GetRailSpeed(), bulletPool);
         }
     }
 
@@ -83,7 +100,7 @@ public class OsmosisController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Cell"))
+        if (other.CompareTag("Cell") || other.CompareTag("Plaque"))
         {
             // Reset path
             railController.ResetRail();
