@@ -67,7 +67,6 @@ public class Spawner : MonoBehaviour
                                     (Vector3.up * UnityEngine.Random.Range(0, spawnerElement.burstDistance)));
 
                                 GameObject obj = Instantiate(spawnerElement.prefab, burstOffset, Quaternion.identity);
-                                obj.GetComponent<Renderer>().material.color = Color.red;
                             }
                         }
                     }
