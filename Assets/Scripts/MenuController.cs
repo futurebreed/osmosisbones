@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public enum Scenes : int
@@ -10,12 +11,12 @@ public enum Scenes : int
 
 public class MenuController : MonoBehaviour
 {
-    [SerializeField]
-    FMODUnity.StudioEventEmitter soundEmitter;
+    private AudioManager audioManager;
 
     private void Start()
     {
-        soundEmitter.Play();
+        audioManager = AudioManager.Instance;
+        audioManager.PlayBackgroundAudio(Guid.Parse("92ea6681-03a1-42f3-b016-9c14447678d2"), gameObject);
     }
 
     private void Update()
@@ -24,7 +25,7 @@ public class MenuController : MonoBehaviour
         if (aButtonPressed)
         {
             SceneManager.LoadScene((int)Scenes.GameScene);
-            soundEmitter.Stop();
+            audioManager.Stop();
         }
 
         bool quitButtonPressed = Input.GetButtonUp("Quit");

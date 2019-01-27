@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public struct AudioDialogue
 {
     public string line;
-    public string audioEvent;
+    public Guid audioEvent;
 }
 
 public class PromptManager : MonoBehaviour
@@ -25,6 +25,8 @@ public class PromptManager : MonoBehaviour
     [SerializeField]
     private float closePromptDelay;
 
+    private AudioManager audioManager;
+
     private Coroutine delayedTextRoutine;
 
     public GameObject promptPanel;
@@ -38,6 +40,8 @@ public class PromptManager : MonoBehaviour
 
     private void Awake()
     {
+        audioManager = AudioManager.Instance;
+
         string respawnRawText = string.Empty;
         if (respawnPromptData != null)
         {
@@ -70,7 +74,7 @@ public class PromptManager : MonoBehaviour
             output.Add(new AudioDialogue
             {
                 line = splitString[0],
-                audioEvent = splitString[1]
+                audioEvent = Guid.Parse(splitString[1])
             });
         }
     }
@@ -166,8 +170,7 @@ public class PromptManager : MonoBehaviour
     /// </summary>
     private IEnumerator<WaitForSeconds> PlayDialogue(AudioDialogue dialogue)
     {
-        var eventToLoad = dialogue.audioEvent;
-        FMODUnity.RuntimeManager.PlayOneShotAttached(eventToLoad, gameObject);
+        audioManager.PlayDialogSound(dialogue.audioEvent, gameObject);
 
         var text = dialogue.line;
 

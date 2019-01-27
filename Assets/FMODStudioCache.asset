@@ -18,32 +18,31 @@ MonoBehaviour:
   EditorEvents:
   - {fileID: 114376617088943990}
   - {fileID: 114731217365575998}
-  - {fileID: 114952860189237956}
-  - {fileID: 114743907694560640}
-  - {fileID: 114578565522125976}
-  - {fileID: 114808264618814036}
-  - {fileID: 114533864783274330}
-  - {fileID: 114144328114463176}
-  - {fileID: 114037809965466780}
-  - {fileID: 114276353538229078}
-  - {fileID: 114739692575482934}
-  - {fileID: 114716947316781200}
-  - {fileID: 114622004765945168}
-  - {fileID: 114400692530046052}
-  - {fileID: 114410456674029842}
-  - {fileID: 114007458790486090}
-  - {fileID: 114428093921408140}
-  - {fileID: 114956949369123510}
-  - {fileID: 114570738199615698}
+  - {fileID: 114943661436871618}
+  - {fileID: 114728099894012696}
+  - {fileID: 114433776453934088}
+  - {fileID: 114608635863835440}
+  - {fileID: 114830618831375162}
+  - {fileID: 114143242343096198}
+  - {fileID: 114277588205072570}
+  - {fileID: 114141242385638160}
+  - {fileID: 114287466730143124}
+  - {fileID: 114115438041387260}
+  - {fileID: 114114783203434084}
+  - {fileID: 114953929414793250}
+  - {fileID: 114149742504528796}
+  - {fileID: 114273553154022548}
+  - {fileID: 114925305543281822}
+  - {fileID: 114905082065118714}
   MasterBanks:
   - {fileID: 114753811746962850}
   - {fileID: 114323840747201194}
   StringsBanks:
   - {fileID: 114303496751492242}
   - {fileID: 114982323513241682}
-  stringsBankWriteTime: 636841913795684017
+  stringsBankWriteTime: 636841553027620510
   cacheVersion: 3
---- !u!114 &114007458790486090
+--- !u!114 &114114783203434084
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -55,8 +54,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Path: event:/Dialogue/Patience2
-  guid: e0aacc5949c0154184d2c54466915214
+  Path: event:/Dialogue/Percent
+  guid: 9d62d13b3f2cea4aac0dda66a8768945
   Banks:
   - {fileID: 114323840747201194}
   IsStream: 0
@@ -65,8 +64,8 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
-  Length: 4438
---- !u!114 &114037809965466780
+  Length: 3190
+--- !u!114 &114115438041387260
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -78,8 +77,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Path: event:/Dialogue/Arteries
-  guid: 60a657b60449854893c2162bd6c72b22
+  Path: event:/Dialogue/Biologically2
+  guid: 98ed6289b5309c4180349f1d3b912094
   Banks:
   - {fileID: 114323840747201194}
   IsStream: 0
@@ -88,31 +87,8 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
-  Length: 4886
---- !u!114 &114144328114463176
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: event:/Dialogue/Arrived
-  guid: 5de5acb9d52513418ee4a7f7bb719a43
-  Banks:
-  - {fileID: 114323840747201194}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 4022
---- !u!114 &114276353538229078
+  Length: 5995
+--- !u!114 &114141242385638160
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -135,6 +111,121 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 4676
+--- !u!114 &114143242343096198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Dialogue/Arrived
+  guid: 5de5acb9d52513418ee4a7f7bb719a43
+  Banks:
+  - {fileID: 114323840747201194}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 4022
+--- !u!114 &114149742504528796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Dialogue/Patience2
+  guid: e0aacc5949c0154184d2c54466915214
+  Banks:
+  - {fileID: 114323840747201194}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 4438
+--- !u!114 &114273553154022548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Dialogue/Pressure
+  guid: ebd07a4b5ab44f4f87891b536296d447
+  Banks:
+  - {fileID: 114323840747201194}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 2835
+--- !u!114 &114277588205072570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Dialogue/Arteries
+  guid: 60a657b60449854893c2162bd6c72b22
+  Banks:
+  - {fileID: 114323840747201194}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 4886
+--- !u!114 &114287466730143124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Dialogue/Biologically
+  guid: 6f9404a928ee0248bdded961443a1ae3
+  Banks:
+  - {fileID: 114323840747201194}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 3485
 --- !u!114 &114303496751492242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,11 +259,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: C:\Users\dan\Git\osmosisbones\Assets\Audio\Desktop\Master Bank.bank
-  lastModified: 636841913795624178
+  lastModified: 636841553027550336
   LoadResult: 0
   FileSizes:
   - Name: 
-    Value: 6791264
+    Value: 4138976
   Exists: 1
 --- !u!114 &114376617088943990
 MonoBehaviour:
@@ -197,122 +288,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 7950
---- !u!114 &114400692530046052
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: event:/Dialogue/Patience
-  guid: b357011c027c9f4c839b5a0863f9444b
-  Banks:
-  - {fileID: 114323840747201194}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 4086
---- !u!114 &114410456674029842
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: event:/BG Music Events/Credits
-  guid: bf944b9e36e4564dab0bd32508b0d240
-  Banks:
-  - {fileID: 114323840747201194}
-  IsStream: 1
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 188029
---- !u!114 &114428093921408140
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: event:/Dialogue/Pressure
-  guid: ebd07a4b5ab44f4f87891b536296d447
-  Banks:
-  - {fileID: 114323840747201194}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 2835
---- !u!114 &114533864783274330
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: event:/Dialogue/Plaque
-  guid: 3d529084066b9943a2b2a4a3c67539b7
-  Banks:
-  - {fileID: 114323840747201194}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 5324
---- !u!114 &114570738199615698
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: event:/Dialogue/Circulation
-  guid: fd443226e1a1624f8b8cff7af6d61d59
-  Banks:
-  - {fileID: 114323840747201194}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 6416
---- !u!114 &114578565522125976
+--- !u!114 &114433776453934088
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -335,7 +311,7 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 2121
---- !u!114 &114622004765945168
+--- !u!114 &114608635863835440
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -347,8 +323,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Path: event:/Dialogue/Percent
-  guid: 9d62d13b3f2cea4aac0dda66a8768945
+  Path: event:/Dialogue/Repairs
+  guid: 3957f8283484cf409bbcfec0d680eb6c
   Banks:
   - {fileID: 114323840747201194}
   IsStream: 0
@@ -357,8 +333,8 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
-  Length: 3190
---- !u!114 &114716947316781200
+  Length: 2162
+--- !u!114 &114728099894012696
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -370,8 +346,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Path: event:/Dialogue/Biologically2
-  guid: 98ed6289b5309c4180349f1d3b912094
+  Path: event:/Dialogue/Home
+  guid: 334089c73ad12b4d87e464ffeb7d66c1
   Banks:
   - {fileID: 114323840747201194}
   IsStream: 0
@@ -380,7 +356,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
-  Length: 5995
+  Length: 3589
 --- !u!114 &114731217365575998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -404,52 +380,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 234076
---- !u!114 &114739692575482934
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: event:/Dialogue/Biologically
-  guid: 6f9404a928ee0248bdded961443a1ae3
-  Banks:
-  - {fileID: 114323840747201194}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 3485
---- !u!114 &114743907694560640
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: event:/Dialogue/Home
-  guid: 334089c73ad12b4d87e464ffeb7d66c1
-  Banks:
-  - {fileID: 114323840747201194}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 3589
 --- !u!114 &114753811746962850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -470,7 +400,7 @@ MonoBehaviour:
   - Name: 
     Value: 3297920
   Exists: 0
---- !u!114 &114808264618814036
+--- !u!114 &114830618831375162
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -482,8 +412,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Path: event:/Dialogue/Repairs
-  guid: 3957f8283484cf409bbcfec0d680eb6c
+  Path: event:/Dialogue/Plaque
+  guid: 3d529084066b9943a2b2a4a3c67539b7
   Banks:
   - {fileID: 114323840747201194}
   IsStream: 0
@@ -492,8 +422,8 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
-  Length: 2162
---- !u!114 &114952860189237956
+  Length: 5324
+--- !u!114 &114905082065118714
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -505,8 +435,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Path: event:/Dialogue/WhiteBloodCell
-  guid: 26c46f4b787e4441afc6e3b1e03dae14
+  Path: event:/Dialogue/Circulation
+  guid: fd443226e1a1624f8b8cff7af6d61d59
   Banks:
   - {fileID: 114323840747201194}
   IsStream: 0
@@ -515,8 +445,8 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
-  Length: 4830
---- !u!114 &114956949369123510
+  Length: 6416
+--- !u!114 &114925305543281822
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -539,6 +469,52 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 5909
+--- !u!114 &114943661436871618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Dialogue/WhiteBloodCell
+  guid: 26c46f4b787e4441afc6e3b1e03dae14
+  Banks:
+  - {fileID: 114323840747201194}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 4830
+--- !u!114 &114953929414793250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Dialogue/Patience
+  guid: b357011c027c9f4c839b5a0863f9444b
+  Banks:
+  - {fileID: 114323840747201194}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 4086
 --- !u!114 &114982323513241682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -552,9 +528,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: Assets\Audio\Desktop\Master Bank.strings.bank
-  lastModified: 636841913795684017
+  lastModified: 636841553027620510
   LoadResult: 0
   FileSizes:
   - Name: 
-    Value: 1524
+    Value: 1486
   Exists: 1

@@ -1,5 +1,5 @@
-The heart beats 2.5 billion times in the average lifetime.  If you fail the mission, this heart will beat you.	Beat
-It may not be biologically correct, but this came from the heart.	Biologically
-An unhealthy diet causes plaque in arteries.  Succeed this mission, and you'll get a plaque in your office.	Plaque
-Don't let the blood pressure get to you.	Pressure
-Doctors need patience, and patients.	Patience
+The heart beats 2.5 billion times in the average lifetime.  If you fail the mission, this heart will beat you.	9a9bc7f7-5035-469e-a9b6-30145d9f14bd
+It may not be biologically correct, but this came from the heart.	a904946f-ee28-4802-bdde-d961443a1ae3
+An unhealthy diet causes plaque in arteries.  Succeed this mission, and you'll get a plaque in your office.	8490523d-6b06-4399-a2b2-a4a3c67539b7
+Don't let the blood pressure get to you.	4b7ad0eb-b45a-4f4f-8789-1b536296d447
+Doctors need patience, and patients.	1c0157b3-7c02-4c9f-839b-5a0863f9444b
