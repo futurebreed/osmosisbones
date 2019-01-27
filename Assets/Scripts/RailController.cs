@@ -48,7 +48,7 @@ public class RailController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.G))
+        if (Debug.isDebugBuild && Input.GetKeyDown(KeyCode.G))
         {
             index = 18;
             transform.position = railManager.GetNodes()[index].position;
