@@ -28,6 +28,7 @@ public class RailController : MonoBehaviour
     private Vector3 cameraOffset;
 
     private int index = 0;
+    private int checkpoint = 0;
 
     private float angleStep = 0;
     private Quaternion lookRotation;
@@ -42,6 +43,11 @@ public class RailController : MonoBehaviour
     {
         RailManager.Node currentNode = railManager.GetNodes()[index];
         float speed = currentNode.cinematic ? cinematicSpeed : railSpeed;
+        if (currentNode.cinematic)
+        {
+            checkpoint = index;
+            spawner.ClearUpToIndex(checkpoint);
+        }
         transform.position = Vector3.MoveTowards(transform.position, currentNode.position, speed * Time.deltaTime);
         Vector3 directionVector = currentNode.position - transform.position;
         if (directionVector.sqrMagnitude == 0f)
@@ -87,8 +93,8 @@ public class RailController : MonoBehaviour
 
     public void resetRail()
     {
-        index = 0;
-        transform.position = Vector3.zero;
-        transform.LookAt(railManager.GetNodes()[0].position, railManager.GetNodes()[0].worldUp);
+        index = checkpoint;
+        transform.position = railManager.GetNodes()[index].position;
+        transform.LookAt(railManager.GetNodes()[index + 1].position, railManager.GetNodes()[index + 1].worldUp);
     }
 }

@@ -281,6 +281,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 52f1abc44fd748a49a5ccb18129d99a3, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52f1abc44fd748a49a5ccb18129d99a3, type: 3}
 --- !u!1 &215525668
@@ -573,7 +577,7 @@ BoxCollider:
   m_GameObject: {fileID: 917327301}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 25, y: 25, z: 25}
   m_Center: {x: 0, y: 0, z: 0}
@@ -767,8 +771,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scaleMin: 1
   scaleMax: 2
-  scaleSpeed: 6
-  scaleRest: 0.8
+  scaleSpeed: 4
+  scaleRest: 0.3
 --- !u!1 &1284231053
 GameObject:
   m_ObjectHideFlags: 0
@@ -1206,7 +1210,7 @@ MonoBehaviour:
     cinematic: 0
   - position: {x: -180, y: 0, z: -120}
     worldUp: {x: 0, y: 1, z: 0}
-    cinematic: 0
+    cinematic: 1
   - position: {x: -203, y: 0, z: -180}
     worldUp: {x: 0, y: 1, z: 0}
     cinematic: 0
