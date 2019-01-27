@@ -42,6 +42,10 @@ public class ObjectPooler : MonoBehaviour
 
     public void ReleaseObject(GameObject obj)
     {
+        if (obj == null)
+        {
+            return;
+        }
         obj.SetActive(false);
         pool.Enqueue(obj);
     }
