@@ -9,6 +9,9 @@ public class CreditsController : MonoBehaviour
     FMODUnity.StudioEventEmitter soundEmitter;
 
     [SerializeField]
+    private PromptManager promptManager;
+
+    [SerializeField]
     private GameObject fadeInObject;
 
     [SerializeField]
@@ -22,6 +25,7 @@ public class CreditsController : MonoBehaviour
     private void Start()
     {
         soundEmitter.Play();
+        promptManager.ShowFinalStoryPrompt();
         fadeInRoutine = StartCoroutine(FadeIn());
     }
 

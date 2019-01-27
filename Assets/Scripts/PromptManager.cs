@@ -119,6 +119,16 @@ public class PromptManager : MonoBehaviour
         ShowPrompt(GetNextStoryPrompt);
     }
 
+    public void ShowFinalStoryPrompt()
+    {
+        // Make sure a previous prompt is already shut down
+        HidePrompt();
+
+        Debug.Log("Show final prompt");
+        promptPanel.SetActive(true);
+        delayedTextRoutine = StartCoroutine(PlayDialogue(storyPrompts[6]));
+    }
+
     /// <summary>
     /// Retrieve a new respawn prompt and show it on the screen
     /// </summary>
