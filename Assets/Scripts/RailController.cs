@@ -9,6 +9,9 @@ public class RailController : MonoBehaviour
     private RailManager railManager;
 
     [SerializeField]
+    private Spawner spawner;
+
+    [SerializeField]
     private float railSpeed;
 
     [SerializeField]
@@ -43,6 +46,7 @@ public class RailController : MonoBehaviour
         Vector3 directionVector = currentNode.position - transform.position;
         if (directionVector.sqrMagnitude == 0f)
         {
+            spawner.InstantiateNextNode();
             isTurning = false;
             index++;
             if (index == railManager.GetNodes().Length)
