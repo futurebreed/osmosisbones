@@ -4,7 +4,8 @@ using UnityEngine.SceneManagement;
 public enum Scenes : int
 {
     MainMenu = 0,
-    GameScene
+    GameScene,
+    Credits
 }
 
 public class MenuController : MonoBehaviour

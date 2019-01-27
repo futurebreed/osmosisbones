@@ -86,5 +86,10 @@ public class OsmosisController : MonoBehaviour
             timeSinceRedHit = Time.time;
             Destroy(other.gameObject);
         }
+        else if (other.CompareTag("Heart"))
+        {
+            Debug.Log("Hit heart!");
+            SceneManager.LoadScene((int)Scenes.Credits);
+        }
     }
 }

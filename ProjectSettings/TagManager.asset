@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Cell
   - RedCell
+  - Heart
   layers:
   - Default
   - TransparentFX
