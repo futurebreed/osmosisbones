@@ -18,6 +18,9 @@ public class RailController : MonoBehaviour
     private float railSpeed;
 
     [SerializeField]
+    private float speedIncrease;
+
+    [SerializeField]
     private float cinematicSpeed;
 
     [SerializeField]
@@ -40,6 +43,7 @@ public class RailController : MonoBehaviour
     private void Start()
     {
         transform.LookAt(railManager.GetNodes()[0].position, railManager.GetNodes()[0].worldUp);
+        promptManager.ShowStoryPrompt();
     }
 
     private void Update()
@@ -55,12 +59,6 @@ public class RailController : MonoBehaviour
     {
         RailManager.Node currentNode = railManager.GetNodes()[index];
         float speed = currentNode.cinematic ? cinematicSpeed : railSpeed;
-        if (currentNode.cinematic)
-        {
-            checkpoint = index;
-            spawner.ClearUpToIndex(checkpoint);
-            promptManager.ShowStoryPrompt();
-        }
         transform.position = Vector3.MoveTowards(transform.position, currentNode.position, speed * Time.deltaTime);
         Vector3 directionVector = currentNode.position - transform.position;
         if (directionVector.sqrMagnitude == 0f)
@@ -71,6 +69,13 @@ public class RailController : MonoBehaviour
             if (index < railManager.GetNodes().Length)
             {
                 transform.LookAt(railManager.GetNodes()[index].position, railManager.GetNodes()[index].worldUp);
+                if (railManager.GetNodes()[index].cinematic)
+                {
+                    checkpoint = index;
+                    spawner.ClearUpToIndex(checkpoint);
+                    promptManager.ShowStoryPrompt();
+                    railSpeed += speedIncrease;
+                }
             }          
             
         }

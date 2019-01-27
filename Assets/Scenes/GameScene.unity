@@ -563,6 +563,7 @@ MonoBehaviour:
   promptManager: {fileID: 1871042409}
   spawner: {fileID: 1871042408}
   railSpeed: 10
+  speedIncrease: 5
   cinematicSpeed: 5
   turningDistance: 3
   cameraTransform: {fileID: 534669905}
@@ -977,7 +978,7 @@ MonoBehaviour:
     cinematic: 0
   - position: {x: -380, y: 0, z: -87}
     worldUp: {x: 0, y: 1, z: 0}
-    cinematic: 0
+    cinematic: 1
   - position: {x: -422, y: 0, z: -80}
     worldUp: {x: 0, y: 1, z: 0}
     cinematic: 0
@@ -986,13 +987,13 @@ MonoBehaviour:
     cinematic: 0
   - position: {x: -515, y: 0, z: -140}
     worldUp: {x: 0, y: 1, z: 0}
-    cinematic: 0
+    cinematic: 1
   - position: {x: -515, y: 0, z: -158}
     worldUp: {x: 0, y: 1, z: 0}
     cinematic: 0
   - position: {x: -499, y: 0, z: -180}
     worldUp: {x: 0, y: 1, z: 0}
-    cinematic: 0
+    cinematic: 1
   - position: {x: -420, y: 33, z: -252}
     worldUp: {x: 0, y: 1, z: 0}
     cinematic: 0

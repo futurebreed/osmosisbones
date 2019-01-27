@@ -30,7 +30,7 @@ public class PromptManager : MonoBehaviour
     private int currentStoryPromptIndex = 0;
     private List<string> storyPrompts;
 
-    private void Start()
+    private void Awake()
     {
         string respawnRawText = string.Empty;
         if (respawnPromptData != null)
