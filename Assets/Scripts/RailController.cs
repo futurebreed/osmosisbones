@@ -39,6 +39,15 @@ public class RailController : MonoBehaviour
         transform.LookAt(railManager.GetNodes()[0].position, railManager.GetNodes()[0].worldUp);
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            index = 18;
+            transform.position = railManager.GetNodes()[index].position;
+        }
+    }
+
     public Transform UpdateRail()
     {
         RailManager.Node currentNode = railManager.GetNodes()[index];
@@ -55,11 +64,10 @@ public class RailController : MonoBehaviour
             spawner.InstantiateNextNode();
             isTurning = false;
             index++;
-            if (index == railManager.GetNodes().Length)
+            if (index < railManager.GetNodes().Length)
             {
-                index = 0;
-            }
-            transform.LookAt(railManager.GetNodes()[index].position, railManager.GetNodes()[index].worldUp);
+                transform.LookAt(railManager.GetNodes()[index].position, railManager.GetNodes()[index].worldUp);
+            }          
             
         }
         // Try to turn towards the next vector smoothly
