@@ -1,5 +1,7 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class OsmosisController : MonoBehaviour
 {
@@ -25,10 +27,18 @@ public class OsmosisController : MonoBehaviour
     [SerializeField]
     private FMODUnity.StudioEventEmitter soundEmitter;
 
+    [SerializeField]
+    private GameObject fadeObject;
+
+    [SerializeField]
+    private float fadeDelay;
+
     private Vector2 offset = Vector2.zero;
     private float offsetMax;
 
     private float timeSinceRedHit;
+
+    private Coroutine fadeToCredits;
 
     private void Start()
     {
@@ -89,7 +99,24 @@ public class OsmosisController : MonoBehaviour
         else if (other.CompareTag("Heart"))
         {
             Debug.Log("Hit heart!");
-            SceneManager.LoadScene((int)Scenes.Credits);
+            fadeToCredits = StartCoroutine(FadeToCredits());
         }
+    }
+
+    private IEnumerator<WaitForSeconds> FadeToCredits()
+    {
+        // Make sure any prompts get hidden
+        promptManager.HidePrompt();
+
+        Image fadeImage = fadeObject.GetComponent<Image>();
+        while (fadeImage.color.a < 1f)
+        {
+            var color = fadeImage.color;
+            fadeImage.color = new Color(color.r, color.g, color.b, color.a + fadeDelay);
+
+            yield return new WaitForSeconds(fadeDelay * Time.deltaTime);
+        }
+
+        SceneManager.LoadScene((int)Scenes.Credits);
     }
 }
