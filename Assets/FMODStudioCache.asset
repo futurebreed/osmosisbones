@@ -13,16 +13,18 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: 114303496751492242}
-  - {fileID: 114753811746962850}
+  - {fileID: 114982323513241682}
+  - {fileID: 114323840747201194}
   EditorEvents:
   - {fileID: 114376617088943990}
   - {fileID: 114731217365575998}
   MasterBanks:
   - {fileID: 114753811746962850}
+  - {fileID: 114323840747201194}
   StringsBanks:
   - {fileID: 114303496751492242}
-  stringsBankWriteTime: 636841438634409069
+  - {fileID: 114982323513241682}
+  stringsBankWriteTime: 636841529783321365
   cacheVersion: 3
 --- !u!114 &114303496751492242
 MonoBehaviour:
@@ -38,11 +40,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: C:\Users\dan\Documents\FMOD Studio\in your robotic heart\Build\Desktop\Master
     Bank.strings.bank
-  lastModified: 636841438634409069
+  lastModified: 636841517087225801
   LoadResult: 0
   FileSizes:
   - Name: 
     Value: 790
+  Exists: 0
+--- !u!114 &114323840747201194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: C:\Users\dan\Git\osmosisbones\Assets\Audio\Desktop\Master Bank.bank
+  lastModified: 636841529783251564
+  LoadResult: 0
+  FileSizes:
+  - Name: 
+    Value: 3297920
   Exists: 1
 --- !u!114 &114376617088943990
 MonoBehaviour:
@@ -59,7 +80,7 @@ MonoBehaviour:
   Path: event:/BG Music Events/Drum Intro
   guid: 8166ea92a103f342b0169c14447678d2
   Banks:
-  - {fileID: 114753811746962850}
+  - {fileID: 114323840747201194}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
@@ -82,7 +103,7 @@ MonoBehaviour:
   Path: event:/BG Music Events/Game Starts
   guid: 90cba94f8bd05a4596356e9ba4abb6bf
   Banks:
-  - {fileID: 114753811746962850}
+  - {fileID: 114323840747201194}
   IsStream: 1
   Is3D: 1
   IsOneShot: 1
@@ -104,9 +125,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: C:\Users\dan\Documents\FMOD Studio\in your robotic heart\Build\Desktop\Master
     Bank.bank
-  lastModified: 636841438634379164
+  lastModified: 636841517087026442
   LoadResult: 0
   FileSizes:
   - Name: 
     Value: 3297920
+  Exists: 0
+--- !u!114 &114982323513241682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: Assets\Audio\Desktop\Master Bank.strings.bank
+  lastModified: 636841529783321365
+  LoadResult: 0
+  FileSizes:
+  - Name: 
+    Value: 790
   Exists: 1

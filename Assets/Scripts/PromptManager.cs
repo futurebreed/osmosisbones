@@ -5,6 +5,12 @@ using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.UI;
 
+public struct AudioDialogue
+{
+    public string line;
+    public string audioEvent;
+}
+
 public class PromptManager : MonoBehaviour
 {
     [SerializeField]
@@ -25,10 +31,10 @@ public class PromptManager : MonoBehaviour
     public Text promptText;
 
     private int currentRespawnPromptIndex = 0;
-    private List<string> respawnPrompts;
+    private List<AudioDialogue> respawnPrompts;
 
     private int currentStoryPromptIndex = 0;
-    private List<string> storyPrompts;
+    private List<AudioDialogue> storyPrompts;
 
     private void Awake()
     {
@@ -51,22 +57,27 @@ public class PromptManager : MonoBehaviour
         ResetPrompts();
     }
 
-    private void PopulatePromptData(string rawText, out List<string> output)
+    private void PopulatePromptData(string rawText, out List<AudioDialogue> output)
     {
         // Initialize output
-        output = new List<string>();
+        output = new List<AudioDialogue>();
 
         string[] rawTextLines = Regex.Split(rawText, "\n|\r\n?");
 
         foreach (string line in rawTextLines)
         {
-            output.Add(line);
+            var splitString = line.Split('\t');
+            output.Add(new AudioDialogue
+            {
+                line = splitString[0],
+                audioEvent = splitString[1]
+            });
         }
     }
 
-    public string GetNextStoryPrompt()
+    public AudioDialogue GetNextStoryPrompt()
     {
-        string prompt = storyPrompts[currentStoryPromptIndex];
+        AudioDialogue prompt = storyPrompts[currentStoryPromptIndex];
 
         if (currentStoryPromptIndex + 1 < storyPrompts.Count)
         {
@@ -84,9 +95,9 @@ public class PromptManager : MonoBehaviour
         currentRespawnPromptIndex = UnityEngine.Random.Range(0, respawnPrompts.Count - 1);
     }
 
-    public string GetNextRespawnPrompt()
+    public AudioDialogue GetNextRespawnPrompt()
     {
-        string prompt = respawnPrompts[currentRespawnPromptIndex];
+        AudioDialogue prompt = respawnPrompts[currentRespawnPromptIndex];
 
         if (currentRespawnPromptIndex + 1 < respawnPrompts.Count)
         {
@@ -116,14 +127,14 @@ public class PromptManager : MonoBehaviour
         ShowPrompt(GetNextRespawnPrompt);
     }
 
-    private void ShowPrompt(Func<string> getPromptFunction)
+    private void ShowPrompt(Func<AudioDialogue> getPromptFunction)
     {
         // Make sure a previous prompt is already shut down
         HidePrompt();
 
         Debug.Log("Show prompt");
         promptPanel.SetActive(true);
-        delayedTextRoutine = StartCoroutine(WaitAndPrintText(getPromptFunction()));
+        delayedTextRoutine = StartCoroutine(PlayDialogue(getPromptFunction()));
     }
 
     /// <summary>
@@ -143,8 +154,13 @@ public class PromptManager : MonoBehaviour
     /// <summary>
     /// Does a delayed text write effect
     /// </summary>
-    private IEnumerator<WaitForSeconds> WaitAndPrintText(string text)
+    private IEnumerator<WaitForSeconds> PlayDialogue(AudioDialogue dialogue)
     {
+        var eventToLoad = dialogue.audioEvent;
+        FMODUnity.RuntimeManager.PlayOneShotAttached(eventToLoad, gameObject);
+
+        var text = dialogue.line;
+
         int totalToShow = text.Length;
         int shownSoFarCount = 0;
 
