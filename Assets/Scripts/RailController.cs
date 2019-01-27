@@ -108,10 +108,16 @@ public class RailController : MonoBehaviour
         return transform;
     }
 
-    public void resetRail()
+    public void ResetRail()
     {
         index = checkpoint;
-        transform.position = railManager.GetNodes()[index].position;
-        transform.LookAt(railManager.GetNodes()[index + 1].position, railManager.GetNodes()[index + 1].worldUp);
+        if (index - 1 > -1)
+        {
+            transform.position = railManager.GetNodes()[index - 1].position;
+        } else
+        {
+            transform.position = Vector3.zero;
+        }
+        transform.LookAt(railManager.GetNodes()[index].position, railManager.GetNodes()[index].worldUp);
     }
 }

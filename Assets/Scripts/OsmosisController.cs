@@ -76,7 +76,7 @@ public class OsmosisController : MonoBehaviour
         if (other.CompareTag("Cell"))
         {
             // Reset path
-            railController.resetRail();
+            railController.ResetRail();
             timeSinceRedHit = float.MinValue;
             promptManager.ShowRespawnPrompt();
         }
