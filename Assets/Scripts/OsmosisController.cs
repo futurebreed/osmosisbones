@@ -1,6 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class OsmosisController : MonoBehaviour
 {
@@ -44,6 +43,12 @@ public class OsmosisController : MonoBehaviour
         Transform railTransform = railController.UpdateRail();
         transform.position = railTransform.position + (railTransform.rotation * new Vector3(offset.x, offset.y, 0f));
         transform.rotation = railTransform.rotation;
+
+        if(Input.GetButtonUp("Quit"))
+        {
+            Debug.Log("Go to Menu");
+            SceneManager.LoadScene((int)Scenes.MainMenu);
+        }
     }
 
     private float BoundValues(float realValue, float max)
