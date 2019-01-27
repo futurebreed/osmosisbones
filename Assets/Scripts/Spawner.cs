@@ -22,6 +22,9 @@ public class Spawner : MonoBehaviour
 
     private void Start()
     {
+        //Hide the cursor
+        Cursor.visible = false;
+
         // Make sure cells don't spawn right next to the start position
         // What determines start position? Currently just using Vector3.zero
         currentPosition = Vector3.MoveTowards(Vector3.zero, railManager.GetNodes()[0].position, 5f);
