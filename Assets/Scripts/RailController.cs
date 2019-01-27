@@ -52,6 +52,7 @@ public class RailController : MonoBehaviour
         {
             index = 18;
             transform.position = railManager.GetNodes()[index].position;
+            promptManager.HidePrompt();
         }
     }
 
@@ -73,11 +74,15 @@ public class RailController : MonoBehaviour
                 {
                     checkpoint = index;
                     spawner.ClearUpToIndex(checkpoint);
-                    promptManager.ShowStoryPrompt();
+
+                    if (index < 19)
+                    {
+                        promptManager.ShowStoryPrompt();
+                    }
+
                     railSpeed += speedIncrease;
                 }
-            }          
-            
+            }
         }
         // Try to turn towards the next vector smoothly
         else if (directionVector.sqrMagnitude < (turningDistance * turningDistance) && index + 1 != railManager.GetNodes().Length)
