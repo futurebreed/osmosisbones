@@ -9,6 +9,9 @@ public class RailController : MonoBehaviour
     private RailManager railManager;
 
     [SerializeField]
+    private PromptManager promptManager;
+
+    [SerializeField]
     private Spawner spawner;
 
     [SerializeField]
@@ -56,6 +59,7 @@ public class RailController : MonoBehaviour
         {
             checkpoint = index;
             spawner.ClearUpToIndex(checkpoint);
+            promptManager.ShowStoryPrompt();
         }
         transform.position = Vector3.MoveTowards(transform.position, currentNode.position, speed * Time.deltaTime);
         Vector3 directionVector = currentNode.position - transform.position;

@@ -560,6 +560,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   railManager: {fileID: 1871042406}
+  promptManager: {fileID: 1871042409}
   spawner: {fileID: 1871042408}
   railSpeed: 10
   cinematicSpeed: 5
@@ -967,7 +968,7 @@ MonoBehaviour:
     cinematic: 0
   - position: {x: -281, y: 0, z: -199}
     worldUp: {x: 0, y: 1, z: 0}
-    cinematic: 0
+    cinematic: 1
   - position: {x: -319, y: 0, z: -177}
     worldUp: {x: 0, y: 1, z: 0}
     cinematic: 0
