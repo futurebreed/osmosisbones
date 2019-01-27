@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public enum Scenes : int
 {
     MainMenu = 0,
-    OsmosisScene
+    GameScene
 }
 
 public class MenuController : MonoBehaviour
@@ -24,7 +19,7 @@ public class MenuController : MonoBehaviour
         bool aButtonPressed = Input.GetButtonUp("Fire1");
         if (aButtonPressed)
         {
-            SceneManager.LoadScene((int)Scenes.OsmosisScene);
+            SceneManager.LoadScene((int)Scenes.GameScene);
         }
     }
 }

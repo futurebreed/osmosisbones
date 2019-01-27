@@ -313,6 +313,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeDelay: 3
   fadeAmount: 0.05
+  pulseIntensity: 0.0125
+  maxPulse: 0.05
 --- !u!1 &1287553646
 GameObject:
   m_ObjectHideFlags: 0
