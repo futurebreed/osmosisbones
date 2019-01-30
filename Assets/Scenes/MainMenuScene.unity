@@ -299,7 +299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80a214e2efa3ab74683b468c47d4cba2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundEmitter: {fileID: 742784517}
+  audioManager: {fileID: 742784517}
 --- !u!114 &742784517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -309,20 +309,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 742784514}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Script: {fileID: 11500000, guid: 4a4277ee5b3c0d54381ca04814d3a012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Event: event:/BG Music Events/Drum Intro
-  PlayEvent: 0
-  StopEvent: 0
-  CollisionTag: 
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
+  maxBackgroundAudioLevel: 1
+  maxDialogueAudioLevel: 1
+  maxSoundEffectAudioLevel: 0
 --- !u!1 &760642039
 GameObject:
   m_ObjectHideFlags: 0

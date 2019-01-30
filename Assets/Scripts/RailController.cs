@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 // Should be own gameobject so the Transform is not affected by the offset
 public class RailController : MonoBehaviour
@@ -103,7 +101,7 @@ public class RailController : MonoBehaviour
 
                 // Calculate how much we need to turn each second
                 angleStep = (angleRemaining / distanceRemaining) * speed;
-                Debug.LogFormat("AngleStep set to {0}", angleStep);                
+                Debug.LogFormat("AngleStep set to {0}", angleStep);
                 isTurning = true;
             }
 

@@ -1192,6 +1192,7 @@ GameObject:
   - component: {fileID: 1871042406}
   - component: {fileID: 1871042408}
   - component: {fileID: 1871042409}
+  - component: {fileID: 1871042410}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1347,8 +1348,24 @@ MonoBehaviour:
   storyPromptData: {fileID: 4900000, guid: 887a1d1e2ac5e454bad9bc7d450f1ed3, type: 3}
   showLetterDelay: 2
   closePromptDelay: 150
+  audioManager: {fileID: 1871042410}
   promptPanel: {fileID: 1484443726}
   promptText: {fileID: 1625164476}
+--- !u!114 &1871042410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1871042405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a4277ee5b3c0d54381ca04814d3a012, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxBackgroundAudioLevel: 1
+  maxDialogueAudioLevel: 1
+  maxSoundEffectAudioLevel: 0
 --- !u!1 &1899288968
 GameObject:
   m_ObjectHideFlags: 0
@@ -1514,6 +1531,10 @@ PrefabInstance:
       propertyPath: fadeDelay
       value: 0.006
       objectReference: {fileID: 0}
+    - target: {fileID: 917327303, guid: 7e1493b071bd4ea449b5a858e17c78cb, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 1871042410}
     - target: {fileID: 7434839771954434112, guid: 7e1493b071bd4ea449b5a858e17c78cb,
         type: 3}
       propertyPath: m_Layer

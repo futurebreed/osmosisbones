@@ -198,6 +198,7 @@ GameObject:
   - component: {fileID: 551926936}
   - component: {fileID: 551926937}
   - component: {fileID: 551926938}
+  - component: {fileID: 551926939}
   m_Layer: 0
   m_Name: CreditsManager
   m_TagString: Untagged
@@ -231,7 +232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42fab5cf2202c8f438291571acb4eae8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundEmitter: {fileID: 551926937}
+  audioManager: {fileID: 551926939}
   promptManager: {fileID: 551926938}
   fadeInObject: {fileID: 1409977700}
   fadeDelay: 0.006
@@ -275,8 +276,24 @@ MonoBehaviour:
   storyPromptData: {fileID: 4900000, guid: 887a1d1e2ac5e454bad9bc7d450f1ed3, type: 3}
   showLetterDelay: 3
   closePromptDelay: 200
+  audioManager: {fileID: 551926939}
   promptPanel: {fileID: 1890354696}
   promptText: {fileID: 1456903648}
+--- !u!114 &551926939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 551926934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a4277ee5b3c0d54381ca04814d3a012, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxBackgroundAudioLevel: 1
+  maxDialogueAudioLevel: 1
+  maxSoundEffectAudioLevel: 0
 --- !u!1 &835062446
 GameObject:
   m_ObjectHideFlags: 0

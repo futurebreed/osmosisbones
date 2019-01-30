@@ -1,8 +1,8 @@
-INJECTING NANOPROBE...	Injecting
-Proceed to the heart via the bloodstream, doctor.  The way to a man's heart is through the arteries.	Arteries
-If you hit a white blood cell, a virus, or plaque, you will heart over.	WhiteBloodCell
-Heart surgery is too risky for this patient.  Only you can achieve this, doctor.	Surgery
-Blood takes about 20 seconds to circulate the entire body.  In this body, circulation is taking significantly longer.	Circulation
-Approximately 75% of your journey is complete.	Percent
-Home is where the heart is.	Home
-You have arrived at the heart, congratulations, doctor.  Initiating repairs.	Arrived
+INJECTING NANOPROBE...	19079a36-4cc6-40c8-9a43-b8d45a4b3882
+Proceed to the heart via the bloodstream, doctor.  The way to a man's heart is through the arteries.	b657a660-4904-4885-93c2-162bd6c72b22
+If you hit a white blood cell, a virus, or plaque, you will heart over.	4b6fc426-7e78-4144-afc6-e3b1e03dae14
+Heart surgery is too risky for this patient.  Only you can achieve this, doctor.	98ac0261-eb6d-4714-84b5-c59351fc1f3e
+Blood takes about 20 seconds to circulate the entire body.  In this body, circulation is taking significantly longer.	263244fd-a1e1-4f62-8b8c-ff7af6d61d59
+Approximately 75% of your journey is complete.	3bd1629d-2c3f-4aea-ac0d-da66a8768945
+Home is where the heart is.	c7894033-d13a-4d2b-87e4-64ffeb7d66c1
+You have arrived at the heart, congratulations, doctor.  Initiating repairs.	b9ace55d-25d5-4113-8ee4-a7f7bb719a43

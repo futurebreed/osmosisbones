@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -6,7 +7,7 @@ using UnityEngine.UI;
 public class CreditsController : MonoBehaviour
 {
     [SerializeField]
-    FMODUnity.StudioEventEmitter soundEmitter;
+    private AudioManager audioManager;
 
     [SerializeField]
     private PromptManager promptManager;
@@ -24,7 +25,8 @@ public class CreditsController : MonoBehaviour
 
     private void Start()
     {
-        soundEmitter.Play();
+        audioManager.PlayBackgroundAudio(Guid.Parse("9e4b94bf-e436-4d56-ab0b-d32508b0d240"), gameObject);
+
         promptManager.ShowFinalStoryPrompt();
         fadeInRoutine = StartCoroutine(FadeIn());
     }
@@ -36,7 +38,7 @@ public class CreditsController : MonoBehaviour
         if (aButtonPressed || quitButtonPressed)
         {
             SceneManager.LoadScene((int)Scenes.MainMenu);
-            soundEmitter.Stop();
+            audioManager.Stop();
         }
     }
 

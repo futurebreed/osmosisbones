@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -31,7 +32,7 @@ public class OsmosisController : MonoBehaviour
     private PromptManager promptManager;
 
     [SerializeField]
-    private FMODUnity.StudioEventEmitter soundEmitter;
+    private AudioManager audioManager;
 
     [SerializeField]
     private GameObject fadeObject;
@@ -53,7 +54,8 @@ public class OsmosisController : MonoBehaviour
     {
         offsetMax = railManager.GetOffsetMax();
         timeSinceRedHit = float.MinValue;
-        soundEmitter.Play();
+
+        audioManager.PlayBackgroundAudio(Guid.Parse("4fa9cb90-d08b-455a-9635-6e9ba4abb6bf"), gameObject);
         bulletPool = GetComponent<ObjectPooler>();
     }
 
@@ -72,7 +74,7 @@ public class OsmosisController : MonoBehaviour
         {
             Debug.Log("Go to Menu");
             SceneManager.LoadScene((int)Scenes.MainMenu);
-            soundEmitter.Stop();
+            audioManager.Stop();
         }
         if (Input.GetButton("Fire1") && Time.time - timeSinceLastFire > fireRest)
         {
