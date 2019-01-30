@@ -116,6 +116,13 @@ public class OsmosisController : MonoBehaviour
             timeSinceRedHit = Time.time;
             Destroy(other.gameObject);
         }
+        else if (other.CompareTag("MusicFade"))
+        {
+            audioManager.FadeBackgroundAudio(-0.0005f);
+
+            // Make sure any prompts get hidden
+            promptManager.HidePrompt();
+        }
         else if (other.CompareTag("Heart"))
         {
             Debug.Log("Hit heart!");
@@ -125,9 +132,6 @@ public class OsmosisController : MonoBehaviour
 
     private IEnumerator<WaitForSeconds> FadeToCredits()
     {
-        // Make sure any prompts get hidden
-        promptManager.HidePrompt();
-
         Image fadeImage = fadeObject.GetComponent<Image>();
         while (fadeImage.color.a < 1f)
         {

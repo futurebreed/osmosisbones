@@ -58,7 +58,13 @@ public class AudioManager : MonoBehaviour
         bgAudioInstance = FMODUnity.RuntimeManager.CreateInstance(eventToLoad);
 
         FMODUnity.RuntimeManager.AttachInstanceToGameObject(bgAudioInstance, parentObject.transform, parentObject.GetComponent<Rigidbody>());
-        StartCoroutine(TransitionVolume(0.01f, maxBackgroundAudioLevel, fadeInLength, bgAudioInstance));
+        bgAudioInstance.start();
+        StartCoroutine(TransitionVolume(0.01f, maxBackgroundAudioLevel, fadeInLength, (start, end) => start < end, bgAudioInstance));
+    }
+
+    public void FadeBackgroundAudio(float fadeDelay)
+    {
+        StartCoroutine(TransitionVolume(maxBackgroundAudioLevel, 0f, fadeDelay, (start, end) => start > end, bgAudioInstance));
     }
 
     public void PlayDialogSound(Guid eventToLoad, GameObject parentObject)
@@ -94,18 +100,15 @@ public class AudioManager : MonoBehaviour
         bgAudioInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
 
-    private IEnumerator<WaitForSeconds> TransitionVolume(float start, float end, float step, EventInstance target)
+    private IEnumerator<WaitForSeconds> TransitionVolume(float start, float end, float step, Func<float, float, bool> comparator, EventInstance target)
     {
-        target.start();
         target.setVolume(start);
-        target.getVolume(out float volume, out float finalvolume);
-
-        while (volume < end)
+        while (comparator(start, end))
         {
-            yield return new WaitForSeconds(step * Time.fixedDeltaTime);
+            yield return new WaitForSeconds(Math.Abs(step) * Time.fixedDeltaTime);
 
-            volume += step;
-            target.setVolume(volume);
+            start += step;
+            target.setVolume(Math.Max(start, 0f));
         }
     }
 }

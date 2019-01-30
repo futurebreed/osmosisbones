@@ -9,6 +9,7 @@ TagManager:
   - Heart
   - Plaque
   - Bullet
+  - MusicFade
   layers:
   - Default
   - TransparentFX
