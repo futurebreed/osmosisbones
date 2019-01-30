@@ -55,7 +55,7 @@ public class OsmosisController : MonoBehaviour
         offsetMax = railManager.GetOffsetMax();
         timeSinceRedHit = float.MinValue;
 
-        audioManager.PlayBackgroundAudio(Guid.Parse("4fa9cb90-d08b-455a-9635-6e9ba4abb6bf"), gameObject);
+        audioManager.PlayBackgroundAudio(Guid.Parse("4fa9cb90-d08b-455a-9635-6e9ba4abb6bf"), gameObject, .0005f);
         bulletPool = GetComponent<ObjectPooler>();
     }
 
@@ -73,8 +73,9 @@ public class OsmosisController : MonoBehaviour
         if(Input.GetButtonUp("Quit"))
         {
             Debug.Log("Go to Menu");
-            SceneManager.LoadScene((int)Scenes.MainMenu);
             audioManager.Stop();
+            promptManager.HidePrompt();
+            SceneManager.LoadScene((int)Scenes.MainMenu);
         }
         if (Input.GetButton("Fire1") && Time.time - timeSinceLastFire > fireRest)
         {

@@ -1,6 +1,7 @@
 ﻿using FMOD;
 using FMOD.Studio;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
@@ -16,6 +17,8 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField]
     private float maxSoundEffectAudioLevel;
+
+    private Coroutine fadeRoutine;
 
     private void Awake()
     {
@@ -43,7 +46,7 @@ public class AudioManager : MonoBehaviour
 
     private EventInstance bgAudioInstance;
 
-    public void PlayBackgroundAudio(Guid eventToLoad, GameObject parentObject)
+    public void PlayBackgroundAudio(Guid eventToLoad, GameObject parentObject, float fadeInLength = 1)
     {
         if (bgAudioInstance.isValid())
         {
@@ -55,8 +58,7 @@ public class AudioManager : MonoBehaviour
         bgAudioInstance = FMODUnity.RuntimeManager.CreateInstance(eventToLoad);
 
         FMODUnity.RuntimeManager.AttachInstanceToGameObject(bgAudioInstance, parentObject.transform, parentObject.GetComponent<Rigidbody>());
-        bgAudioInstance.setVolume(maxBackgroundAudioLevel);
-        bgAudioInstance.start();
+        StartCoroutine(TransitionVolume(0.01f, maxBackgroundAudioLevel, fadeInLength, bgAudioInstance));
     }
 
     public void PlayDialogSound(Guid eventToLoad, GameObject parentObject)
@@ -67,7 +69,6 @@ public class AudioManager : MonoBehaviour
             dialogRunning = true;
 
             var audioInstance = FMODUnity.RuntimeManager.CreateInstance(eventToLoad);
-            FMODUnity.RuntimeManager.AttachInstanceToGameObject(audioInstance, parentObject.transform, parentObject.GetComponent<Rigidbody>());
 
             audioInstance.setCallback(audioFinishedCallback, EVENT_CALLBACK_TYPE.SOUND_STOPPED);
             audioInstance.setVolume(maxDialogueAudioLevel);
@@ -91,5 +92,20 @@ public class AudioManager : MonoBehaviour
     public void Stop()
     {
         bgAudioInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+    }
+
+    private IEnumerator<WaitForSeconds> TransitionVolume(float start, float end, float step, EventInstance target)
+    {
+        target.start();
+        target.setVolume(start);
+        target.getVolume(out float volume, out float finalvolume);
+
+        while (volume < end)
+        {
+            yield return new WaitForSeconds(step * Time.fixedDeltaTime);
+
+            volume += step;
+            target.setVolume(volume);
+        }
     }
 }

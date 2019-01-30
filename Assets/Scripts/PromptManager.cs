@@ -28,10 +28,13 @@ public class PromptManager : MonoBehaviour
     [SerializeField]
     private AudioManager audioManager;
 
-    private Coroutine delayedTextRoutine;
+    [SerializeField]
+    private GameObject promptPanel;
 
-    public GameObject promptPanel;
-    public Text promptText;
+    [SerializeField]
+    private Text promptText;
+
+    private Coroutine delayedTextRoutine;
 
     private int currentRespawnPromptIndex = 0;
     private List<AudioDialogue> respawnPrompts;
@@ -184,14 +187,14 @@ public class PromptManager : MonoBehaviour
             // If the text is done rendering, wait for our prompt delay, then hide the prompt
             if (totalToShow == shownSoFarCount)
             {
-                yield return new WaitForSeconds(closePromptDelay * Time.deltaTime);
+                yield return new WaitForSeconds(closePromptDelay * Time.fixedDeltaTime);
 
                 HidePrompt();
             }
             else
             {
                 // Wait until we should show the next text character
-                yield return new WaitForSeconds(showLetterDelay * Time.deltaTime);
+                yield return new WaitForSeconds(showLetterDelay * Time.fixedDeltaTime);
             }
         }
     }

@@ -395,7 +395,6 @@ GameObject:
   m_Component:
   - component: {fileID: 534669905}
   - component: {fileID: 534669904}
-  - component: {fileID: 534669903}
   - component: {fileID: 534669906}
   m_Layer: 0
   m_Name: Main Camera
@@ -404,14 +403,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &534669903
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 534669902}
-  m_Enabled: 1
 --- !u!20 &534669904
 Camera:
   m_ObjectHideFlags: 0
@@ -762,7 +753,7 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -953,7 +944,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1484443727
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1363,7 +1354,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a4277ee5b3c0d54381ca04814d3a012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxBackgroundAudioLevel: 1
+  maxBackgroundAudioLevel: 0.3
   maxDialogueAudioLevel: 1
   maxSoundEffectAudioLevel: 0
 --- !u!1 &1899288968
@@ -1518,7 +1509,7 @@ PrefabInstance:
     - target: {fileID: 917327303, guid: 7e1493b071bd4ea449b5a858e17c78cb, type: 3}
       propertyPath: soundEmitter
       value: 
-      objectReference: {fileID: 1697796311298815729}
+      objectReference: {fileID: 0}
     - target: {fileID: 917327303, guid: 7e1493b071bd4ea449b5a858e17c78cb, type: 3}
       propertyPath: fireRest
       value: 0.25
@@ -2077,29 +2068,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1697796311298815727}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1697796311298815729
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1697796311298815728}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: event:/BG Music Events/Game Starts
-  PlayEvent: 0
-  StopEvent: 0
-  CollisionTag: 
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
 --- !u!114 &1697796311298815730
 MonoBehaviour:
   m_ObjectHideFlags: 0

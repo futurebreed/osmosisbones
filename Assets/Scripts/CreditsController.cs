@@ -25,7 +25,7 @@ public class CreditsController : MonoBehaviour
 
     private void Start()
     {
-        audioManager.PlayBackgroundAudio(Guid.Parse("9e4b94bf-e436-4d56-ab0b-d32508b0d240"), gameObject);
+        audioManager.PlayBackgroundAudio(Guid.Parse("9e4b94bf-e436-4d56-ab0b-d32508b0d240"), gameObject, .0005f);
 
         promptManager.ShowFinalStoryPrompt();
         fadeInRoutine = StartCoroutine(FadeIn());
