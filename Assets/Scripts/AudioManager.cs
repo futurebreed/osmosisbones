@@ -3,26 +3,33 @@ using FMOD.Studio;
 using System;
 using UnityEngine;
 
-public class AudioManager
+public class AudioManager : MonoBehaviour
 {
     private static AudioManager instance;
-    public static AudioManager Instance
+    private static bool dialogRunning = false;
+
+    [SerializeField]
+    private float maxBackgroundAudioLevel;
+
+    [SerializeField]
+    private float maxDialogueAudioLevel;
+
+    [SerializeField]
+    private float maxSoundEffectAudioLevel;
+
+    private void Awake()
     {
-        get
+        if (instance != null && instance != this)
         {
-            if (instance == null)
-            {
-                instance = new AudioManager();
-            }
-            return instance;
+            Destroy(gameObject);
         }
-        private set
+        else
         {
-            instance = value;
+            instance = this;
         }
     }
 
-    private AudioManager()
+    private void Start()
     {
         // Mandatory for later dynamic audio spawning
         lowlevelSystem = FMODUnity.RuntimeManager.LowlevelSystem;
@@ -35,7 +42,6 @@ public class AudioManager
     private FMOD.System lowlevelSystem;
 
     private EventInstance bgAudioInstance;
-    private bool dialogRunning = false;
 
     public void PlayBackgroundAudio(Guid eventToLoad, GameObject parentObject)
     {
@@ -49,7 +55,7 @@ public class AudioManager
         bgAudioInstance = FMODUnity.RuntimeManager.CreateInstance(eventToLoad);
 
         FMODUnity.RuntimeManager.AttachInstanceToGameObject(bgAudioInstance, parentObject.transform, parentObject.GetComponent<Rigidbody>());
-        bgAudioInstance.setVolume(1f);
+        bgAudioInstance.setVolume(maxBackgroundAudioLevel);
         bgAudioInstance.start();
     }
 
@@ -58,14 +64,15 @@ public class AudioManager
         if (!dialogRunning)
         {
             UnityEngine.Debug.Log("dialog playing");
-            bgAudioInstance.setVolume(0.1f);
             dialogRunning = true;
 
             var audioInstance = FMODUnity.RuntimeManager.CreateInstance(eventToLoad);
             FMODUnity.RuntimeManager.AttachInstanceToGameObject(audioInstance, parentObject.transform, parentObject.GetComponent<Rigidbody>());
 
             audioInstance.setCallback(audioFinishedCallback, EVENT_CALLBACK_TYPE.SOUND_STOPPED);
+            audioInstance.setVolume(maxDialogueAudioLevel);
             audioInstance.start();
+            audioInstance.release();
         }
         else
         {
@@ -76,18 +83,7 @@ public class AudioManager
     private RESULT audioFinishedCallback(EVENT_CALLBACK_TYPE type, EventInstance eventInstance, IntPtr parameters)
     {
         dialogRunning = false;
-
-        try
-        {
-            eventInstance.release();
-            UnityEngine.Debug.Log("dialog finished");
-
-            bgAudioInstance.setVolume(1f);
-        }
-        catch (Exception)
-        {
-            UnityEngine.Debug.Log("hit exception after audio finish");
-        }
+        UnityEngine.Debug.Log("dialog finished");
 
         return RESULT.OK;
     }

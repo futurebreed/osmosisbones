@@ -101,7 +101,7 @@ public class RailController : MonoBehaviour
 
                 // Calculate how much we need to turn each second
                 angleStep = (angleRemaining / distanceRemaining) * speed;
-                Debug.LogFormat("AngleStep set to {0}", angleStep);                
+                Debug.LogFormat("AngleStep set to {0}", angleStep);
                 isTurning = true;
             }
 

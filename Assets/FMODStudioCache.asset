@@ -34,13 +34,14 @@ MonoBehaviour:
   - {fileID: 114273553154022548}
   - {fileID: 114925305543281822}
   - {fileID: 114905082065118714}
+  - {fileID: 114145136699742414}
   MasterBanks:
   - {fileID: 114753811746962850}
   - {fileID: 114323840747201194}
   StringsBanks:
   - {fileID: 114303496751492242}
   - {fileID: 114982323513241682}
-  stringsBankWriteTime: 636841553027620510
+  stringsBankWriteTime: 636843877068620069
   cacheVersion: 3
 --- !u!114 &114114783203434084
 MonoBehaviour:
@@ -134,6 +135,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 4022
+--- !u!114 &114145136699742414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/BG Music Events/Credits
+  guid: bf944b9e36e4564dab0bd32508b0d240
+  Banks:
+  - {fileID: 114323840747201194}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 188029
 --- !u!114 &114149742504528796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,11 +283,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: C:\Users\dan\Git\osmosisbones\Assets\Audio\Desktop\Master Bank.bank
-  lastModified: 636841553027550336
+  lastModified: 636843877068590315
   LoadResult: 0
   FileSizes:
   - Name: 
-    Value: 4138976
+    Value: 6791488
   Exists: 1
 --- !u!114 &114376617088943990
 MonoBehaviour:
@@ -375,7 +399,7 @@ MonoBehaviour:
   - {fileID: 114323840747201194}
   IsStream: 1
   Is3D: 1
-  IsOneShot: 1
+  IsOneShot: 0
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
@@ -528,9 +552,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: Assets\Audio\Desktop\Master Bank.strings.bank
-  lastModified: 636841553027620510
+  lastModified: 636843877068620069
   LoadResult: 0
   FileSizes:
   - Name: 
-    Value: 1486
+    Value: 1524
   Exists: 1

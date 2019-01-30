@@ -11,11 +11,11 @@ public enum Scenes : int
 
 public class MenuController : MonoBehaviour
 {
+    [SerializeField]
     private AudioManager audioManager;
 
     private void Start()
     {
-        audioManager = AudioManager.Instance;
         audioManager.PlayBackgroundAudio(Guid.Parse("92ea6681-03a1-42f3-b016-9c14447678d2"), gameObject);
     }
 

@@ -7,6 +7,9 @@ using UnityEngine.UI;
 public class CreditsController : MonoBehaviour
 {
     [SerializeField]
+    private AudioManager audioManager;
+
+    [SerializeField]
     private PromptManager promptManager;
 
     [SerializeField]
@@ -18,12 +21,10 @@ public class CreditsController : MonoBehaviour
     [SerializeField]
     private float fadeWaitToStart;
 
-    private AudioManager audioManager;
     private Coroutine fadeInRoutine;
 
     private void Start()
     {
-        audioManager = AudioManager.Instance;
         audioManager.PlayBackgroundAudio(Guid.Parse("9e4b94bf-e436-4d56-ab0b-d32508b0d240"), gameObject);
 
         promptManager.ShowFinalStoryPrompt();

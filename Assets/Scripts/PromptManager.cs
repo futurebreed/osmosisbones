@@ -25,6 +25,7 @@ public class PromptManager : MonoBehaviour
     [SerializeField]
     private float closePromptDelay;
 
+    [SerializeField]
     private AudioManager audioManager;
 
     private Coroutine delayedTextRoutine;
@@ -40,8 +41,6 @@ public class PromptManager : MonoBehaviour
 
     private void Awake()
     {
-        audioManager = AudioManager.Instance;
-
         string respawnRawText = string.Empty;
         if (respawnPromptData != null)
         {

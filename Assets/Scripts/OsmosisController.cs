@@ -31,6 +31,7 @@ public class OsmosisController : MonoBehaviour
     [SerializeField]
     private PromptManager promptManager;
 
+    [SerializeField]
     private AudioManager audioManager;
 
     [SerializeField]
@@ -54,7 +55,6 @@ public class OsmosisController : MonoBehaviour
         offsetMax = railManager.GetOffsetMax();
         timeSinceRedHit = float.MinValue;
 
-        audioManager = AudioManager.Instance;
         audioManager.PlayBackgroundAudio(Guid.Parse("4fa9cb90-d08b-455a-9635-6e9ba4abb6bf"), gameObject);
         bulletPool = GetComponent<ObjectPooler>();
     }
