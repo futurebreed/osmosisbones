@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 // Should be own gameobject so the Transform is not affected by the offset
 public class RailController : MonoBehaviour
